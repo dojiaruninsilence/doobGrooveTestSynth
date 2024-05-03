@@ -10,11 +10,15 @@
 
 #include <JuceHeader.h>
 
+#include "DoobSynth/DoobEngine.h"
+
+#include "Utils/AudioBufferQueue.h"
+#include "Utils/ScopeDataCollector.h"
+
 //==============================================================================
 /**
 */
-class DoobGrooveTestSynthAudioProcessor  : public juce::AudioProcessor
-{
+class DoobGrooveTestSynthAudioProcessor  : public juce::AudioProcessor {
 public:
     //==============================================================================
     DoobGrooveTestSynthAudioProcessor();
@@ -53,7 +57,15 @@ public:
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
 
+    juce::MidiMessageCollector& getMidiMessageCollector() noexcept;
+    AudioBufferQueue<float>& getAudioBufferQueue() noexcept;
+
 private:
     //==============================================================================
+    DoobEngine doobEngine;
+    juce::MidiMessageCollector midiMessageCollector;
+    AudioBufferQueue<float> audioBufferQueue;
+    ScopeDataCollector<float> scopeDataCollector{ audioBufferQueue };
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DoobGrooveTestSynthAudioProcessor)
 };

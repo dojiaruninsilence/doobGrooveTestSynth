@@ -11,30 +11,33 @@
 
 //==============================================================================
 DoobGrooveTestSynthAudioProcessorEditor::DoobGrooveTestSynthAudioProcessorEditor (DoobGrooveTestSynthAudioProcessor& p)
-    : AudioProcessorEditor (&p), audioProcessor (p)
-{
-    // Make sure that before the constructor has finished, you've set the
-    // editor's size to whatever you need it to be.
+    : AudioProcessorEditor (&p), audioProcessor (p), scopeComponent(audioProcessor.getAudioBufferQueue()) {
+    addAndMakeVisible(midiKeyboardComponent);
+    addAndMakeVisible(scopeComponent);
+
     setSize (400, 300);
+
+    auto area = getLocalBounds();
+    scopeComponent.setTopLeftPosition(0, 80);
+    scopeComponent.setSize(area.getWidth(), area.getHeight() - 100);
+
+    midiKeyboardComponent.setMidiChannel(2);
+    midiKeyboardState.addListener(&audioProcessor.getMidiMessageCollector());
 }
 
-DoobGrooveTestSynthAudioProcessorEditor::~DoobGrooveTestSynthAudioProcessorEditor()
-{
+DoobGrooveTestSynthAudioProcessorEditor::~DoobGrooveTestSynthAudioProcessorEditor() {
+    midiKeyboardState.removeListener(&audioProcessor.getMidiMessageCollector());
 }
 
 //==============================================================================
 void DoobGrooveTestSynthAudioProcessorEditor::paint (juce::Graphics& g)
 {
     // (Our component is opaque, so we must completely fill the background with a solid colour)
-    g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
-
-    g.setColour (juce::Colours::white);
-    g.setFont (15.0f);
-    g.drawFittedText ("Hello World!", getLocalBounds(), juce::Justification::centred, 1);
+    g.fillAll(juce::Colours::black);
 }
 
 void DoobGrooveTestSynthAudioProcessorEditor::resized()
 {
-    // This is generally where you'll want to lay out the positions of any
-    // subcomponents in your editor..
+    auto area = getLocalBounds();
+    midiKeyboardComponent.setBounds(area.removeFromTop(80).reduced(8));
 }

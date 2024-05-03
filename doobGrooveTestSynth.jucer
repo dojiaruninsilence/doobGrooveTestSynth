@@ -3,10 +3,39 @@
 <JUCERPROJECT id="o3DN8Y" name="doobGrooveTestSynth" projectType="audioplug"
               useAppConfig="0" addUsingNamespaceToJuceHeader="0" displaySplashScreen="1"
               jucerFormatVersion="1" pluginCharacteristicsValue="pluginIsSynth"
-              pluginManufacturer="doobGroove" pluginManufacturerCode="Doob"
-              headerPath="Source/&#10;/Source/">
+              pluginManufacturer="doobGroove" pluginManufacturerCode="Doob">
   <MAINGROUP id="YzOpjC" name="doobGrooveTestSynth">
     <GROUP id="{BD616A8D-FFC3-AB8E-297F-09200639705E}" name="Source">
+      <GROUP id="{B57493ED-72A9-B8DC-6531-D2ECD935630D}" name="DoobSynth">
+        <FILE id="eUEtWU" name="DoobEngine.cpp" compile="1" resource="0" file="Source/DoobSynth/DoobEngine.cpp"/>
+        <FILE id="xPW1o8" name="DoobEngine.h" compile="0" resource="0" file="Source/DoobSynth/DoobEngine.h"/>
+        <FILE id="tSEY6N" name="MainVoice.cpp" compile="1" resource="0" file="Source/DoobSynth/MainVoice.cpp"/>
+        <FILE id="oEMtRD" name="MainVoice.h" compile="0" resource="0" file="Source/DoobSynth/MainVoice.h"/>
+      </GROUP>
+      <GROUP id="{E2164F24-6965-11F6-8B66-B44CBB6BF40A}" name="Effects"/>
+      <GROUP id="{7467550A-E919-2988-FB76-DAAD27DF4B24}" name="Modules"/>
+      <GROUP id="{DB5F2034-1F34-B91D-B4C7-C26414FA3C28}" name="NoiseGens">
+        <FILE id="jILD1d" name="MainOscillator.cpp" compile="1" resource="0"
+              file="Source/NoiseGens/MainOscillator.cpp"/>
+        <FILE id="DKBxcT" name="MainOscillator.h" compile="0" resource="0"
+              file="Source/NoiseGens/MainOscillator.h"/>
+      </GROUP>
+      <GROUP id="{514CB233-7458-E149-DD1D-5A8079F71B3D}" name="UI">
+        <FILE id="Wgh656" name="ScopeComponent.cpp" compile="1" resource="0"
+              file="Source/UI/ScopeComponent.cpp"/>
+        <FILE id="Z6E8oC" name="ScopeComponent.h" compile="0" resource="0"
+              file="Source/UI/ScopeComponent.h"/>
+      </GROUP>
+      <GROUP id="{527314F4-7EF5-1059-4300-DF672FFEC256}" name="Utils">
+        <FILE id="oUktXv" name="AudioBufferQueue.cpp" compile="1" resource="0"
+              file="Source/Utils/AudioBufferQueue.cpp"/>
+        <FILE id="TceuZy" name="AudioBufferQueue.h" compile="0" resource="0"
+              file="Source/Utils/AudioBufferQueue.h"/>
+        <FILE id="glx45b" name="ScopeDataCollector.cpp" compile="1" resource="0"
+              file="Source/Utils/ScopeDataCollector.cpp"/>
+        <FILE id="DqCdF1" name="ScopeDataCollector.h" compile="0" resource="0"
+              file="Source/Utils/ScopeDataCollector.h"/>
+      </GROUP>
       <FILE id="F3dwgv" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
       <FILE id="RHkRxJ" name="PluginProcessor.h" compile="0" resource="0"

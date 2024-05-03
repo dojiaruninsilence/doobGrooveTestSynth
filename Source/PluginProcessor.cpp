@@ -24,18 +24,15 @@ DoobGrooveTestSynthAudioProcessor::DoobGrooveTestSynthAudioProcessor()
 {
 }
 
-DoobGrooveTestSynthAudioProcessor::~DoobGrooveTestSynthAudioProcessor()
-{
+DoobGrooveTestSynthAudioProcessor::~DoobGrooveTestSynthAudioProcessor() {
 }
 
 //==============================================================================
-const juce::String DoobGrooveTestSynthAudioProcessor::getName() const
-{
+const juce::String DoobGrooveTestSynthAudioProcessor::getName() const {
     return JucePlugin_Name;
 }
 
-bool DoobGrooveTestSynthAudioProcessor::acceptsMidi() const
-{
+bool DoobGrooveTestSynthAudioProcessor::acceptsMidi() const {
    #if JucePlugin_WantsMidiInput
     return true;
    #else
@@ -43,8 +40,7 @@ bool DoobGrooveTestSynthAudioProcessor::acceptsMidi() const
    #endif
 }
 
-bool DoobGrooveTestSynthAudioProcessor::producesMidi() const
-{
+bool DoobGrooveTestSynthAudioProcessor::producesMidi() const {
    #if JucePlugin_ProducesMidiOutput
     return true;
    #else
@@ -52,8 +48,7 @@ bool DoobGrooveTestSynthAudioProcessor::producesMidi() const
    #endif
 }
 
-bool DoobGrooveTestSynthAudioProcessor::isMidiEffect() const
-{
+bool DoobGrooveTestSynthAudioProcessor::isMidiEffect() const {
    #if JucePlugin_IsMidiEffect
     return true;
    #else
@@ -61,28 +56,23 @@ bool DoobGrooveTestSynthAudioProcessor::isMidiEffect() const
    #endif
 }
 
-double DoobGrooveTestSynthAudioProcessor::getTailLengthSeconds() const
-{
+double DoobGrooveTestSynthAudioProcessor::getTailLengthSeconds() const {
     return 0.0;
 }
 
-int DoobGrooveTestSynthAudioProcessor::getNumPrograms()
-{
+int DoobGrooveTestSynthAudioProcessor::getNumPrograms() {
     return 1;   // NB: some hosts don't cope very well if you tell them there are 0 programs,
                 // so this should be at least 1, even if you're not really implementing programs.
 }
 
-int DoobGrooveTestSynthAudioProcessor::getCurrentProgram()
-{
+int DoobGrooveTestSynthAudioProcessor::getCurrentProgram() {
     return 0;
 }
 
-void DoobGrooveTestSynthAudioProcessor::setCurrentProgram (int index)
-{
+void DoobGrooveTestSynthAudioProcessor::setCurrentProgram (int index){
 }
 
-const juce::String DoobGrooveTestSynthAudioProcessor::getProgramName (int index)
-{
+const juce::String DoobGrooveTestSynthAudioProcessor::getProgramName (int index) {
     return {};
 }
 
@@ -93,8 +83,8 @@ void DoobGrooveTestSynthAudioProcessor::changeProgramName (int index, const juce
 //==============================================================================
 void DoobGrooveTestSynthAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
-    // Use this method as the place to do any pre-playback
-    // initialisation that you need..
+    doobEngine.prepare({ sampleRate, (juce::uint32)samplesPerBlock, 2 });
+    midiMessageCollector.reset(sampleRate);
 }
 
 void DoobGrooveTestSynthAudioProcessor::releaseResources()
@@ -144,18 +134,8 @@ void DoobGrooveTestSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& 
     for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
 
-    // This is the place where you'd normally do the guts of your plugin's
-    // audio processing...
-    // Make sure to reset the state if your inner loop is processing
-    // the samples and the outer loop is handling the channels.
-    // Alternatively, you can process the samples with the channels
-    // interleaved by keeping the same state.
-    for (int channel = 0; channel < totalNumInputChannels; ++channel)
-    {
-        auto* channelData = buffer.getWritePointer (channel);
-
-        // ..do something to the data...
-    }
+    doobEngine.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());
+    scopeDataCollector.process(buffer.getReadPointer(0), (size_t)buffer.getNumSamples());
 }
 
 //==============================================================================
@@ -181,6 +161,14 @@ void DoobGrooveTestSynthAudioProcessor::setStateInformation (const void* data, i
 {
     // You should use this method to restore your parameters from this memory block,
     // whose contents will have been created by the getStateInformation() call.
+}
+
+juce::MidiMessageCollector& DoobGrooveTestSynthAudioProcessor::getMidiMessageCollector() noexcept {
+    return midiMessageCollector;
+}
+
+AudioBufferQueue<float>& DoobGrooveTestSynthAudioProcessor::getAudioBufferQueue() noexcept {
+    return audioBufferQueue;
 }
 
 //==============================================================================
