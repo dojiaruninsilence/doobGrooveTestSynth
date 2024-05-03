@@ -2,8 +2,9 @@
 
 <JUCERPROJECT id="o3DN8Y" name="doobGrooveTestSynth" projectType="audioplug"
               useAppConfig="0" addUsingNamespaceToJuceHeader="0" displaySplashScreen="1"
-              jucerFormatVersion="1" pluginCharacteristicsValue="pluginIsSynth"
-              pluginManufacturer="doobGroove" pluginManufacturerCode="Doob">
+              jucerFormatVersion="1" pluginCharacteristicsValue="pluginIsSynth,pluginProducesMidiOut"
+              pluginManufacturer="doobGroove" pluginManufacturerCode="Doob"
+              headerPath="/Source/">
   <MAINGROUP id="YzOpjC" name="doobGrooveTestSynth">
     <GROUP id="{BD616A8D-FFC3-AB8E-297F-09200639705E}" name="Source">
       <GROUP id="{B57493ED-72A9-B8DC-6531-D2ECD935630D}" name="DoobSynth">

@@ -16,10 +16,10 @@ MainOscillator<Type>::MainOscillator() {
     osc.initialise([](Type x) {return std::sin(x);}, 128);
 }
 
-template <typename Type>
-MainOscillator<Type>::~MainOscillator() {
-    
-}
+//template <typename Type>
+//MainOscillator<Type>::~MainOscillator() {
+//    
+//}
 
 template <typename Type>
 void MainOscillator<Type>::setFrequency(Type newValue, bool force) {

@@ -11,11 +11,11 @@
 
 //==============================================================================
 DoobGrooveTestSynthAudioProcessorEditor::DoobGrooveTestSynthAudioProcessorEditor (DoobGrooveTestSynthAudioProcessor& p)
-    : AudioProcessorEditor (&p), audioProcessor (p), scopeComponent(audioProcessor.getAudioBufferQueue()) {
+    : AudioProcessorEditor(&p), audioProcessor(p), scopeComponent(audioProcessor.getAudioBufferQueue()) {
     addAndMakeVisible(midiKeyboardComponent);
     addAndMakeVisible(scopeComponent);
 
-    setSize (400, 300);
+    setSize(400, 300);
 
     auto area = getLocalBounds();
     scopeComponent.setTopLeftPosition(0, 80);
@@ -30,14 +30,12 @@ DoobGrooveTestSynthAudioProcessorEditor::~DoobGrooveTestSynthAudioProcessorEdito
 }
 
 //==============================================================================
-void DoobGrooveTestSynthAudioProcessorEditor::paint (juce::Graphics& g)
-{
+void DoobGrooveTestSynthAudioProcessorEditor::paint (juce::Graphics& g) {
     // (Our component is opaque, so we must completely fill the background with a solid colour)
-    g.fillAll(juce::Colours::black);
+    g.fillAll(getLookAndFeel().findColour(juce::ResizableWindow::backgroundColourId));
 }
 
-void DoobGrooveTestSynthAudioProcessorEditor::resized()
-{
+void DoobGrooveTestSynthAudioProcessorEditor::resized() {
     auto area = getLocalBounds();
     midiKeyboardComponent.setBounds(area.removeFromTop(80).reduced(8));
 }

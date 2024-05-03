@@ -17,7 +17,7 @@
 class MainVoice : public juce::MPESynthesiserVoice {
 public:
     MainVoice();
-    ~MainVoice();
+    //~MainVoice();
 
     void prepare(const juce::dsp::ProcessSpec& spec);
     void noteStarted() override;

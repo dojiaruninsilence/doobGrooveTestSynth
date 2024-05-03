@@ -17,7 +17,7 @@ public:
     static constexpr auto maxNumVoices = 4;
 
     DoobEngine();
-    ~DoobEngine();
+    //~DoobEngine();
 
     void prepare(const juce::dsp::ProcessSpec& spec) noexcept;
 

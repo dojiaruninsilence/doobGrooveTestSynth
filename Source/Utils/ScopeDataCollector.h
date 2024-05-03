@@ -16,7 +16,7 @@ template <typename SampleType>
 class ScopeDataCollector {
 public:
     ScopeDataCollector(AudioBufferQueue<SampleType>& queueToUse);
-    ~ScopeDataCollector();
+    //~ScopeDataCollector();
 
     void process(const SampleType* data, size_t numSamples);
 private:

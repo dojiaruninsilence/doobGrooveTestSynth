@@ -11,17 +11,7 @@
 
 //==============================================================================
 DoobGrooveTestSynthAudioProcessor::DoobGrooveTestSynthAudioProcessor()
-#ifndef JucePlugin_PreferredChannelConfigurations
-     : AudioProcessor (BusesProperties()
-                     #if ! JucePlugin_IsMidiEffect
-                      #if ! JucePlugin_IsSynth
-                       .withInput  ("Input",  juce::AudioChannelSet::stereo(), true)
-                      #endif
-                       .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
-                     #endif
-                       )
-#endif
-{
+    : AudioProcessor(BusesProperties().withOutput("Output", juce::AudioChannelSet::stereo(), true)) {
 }
 
 DoobGrooveTestSynthAudioProcessor::~DoobGrooveTestSynthAudioProcessor() {
@@ -124,6 +114,8 @@ void DoobGrooveTestSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& 
     juce::ScopedNoDenormals noDenormals;
     auto totalNumInputChannels  = getTotalNumInputChannels();
     auto totalNumOutputChannels = getTotalNumOutputChannels();
+
+    midiMessageCollector.removeNextBlockOfMessages(midiMessages, buffer.getNumSamples());
 
     // In case we have more outputs than inputs, this code clears any output
     // channels that didn't contain input data, (because these aren't

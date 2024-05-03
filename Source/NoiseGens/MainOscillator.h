@@ -16,7 +16,7 @@ template <typename Type>
 class MainOscillator {
 public:
     MainOscillator();
-    ~MainOscillator();
+    //~MainOscillator();
 
     void setFrequency(Type newValue, bool force = false);
     void setLevel(Type newValue);

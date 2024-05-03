@@ -15,9 +15,9 @@ MainVoice::MainVoice() {
     masterGain.setGainLinear(0.7f);
 }
 
-MainVoice::~MainVoice() {
-
-}
+//MainVoice::~MainVoice() {
+//
+//}
 
 void MainVoice::prepare(const juce::dsp::ProcessSpec& spec) {
     tempBlock = juce::dsp::AudioBlock<float>(heapBlock, spec.numChannels, spec.maximumBlockSize);

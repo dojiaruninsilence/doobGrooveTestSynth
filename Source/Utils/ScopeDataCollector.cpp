@@ -16,10 +16,10 @@ ScopeDataCollector<SampleType>::ScopeDataCollector(AudioBufferQueue<SampleType>&
 
 }
 
-template <typename SampleType>
-ScopeDataCollector<SampleType>::~ScopeDataCollector() {
-
-}
+//template <typename SampleType>
+//ScopeDataCollector<SampleType>::~ScopeDataCollector() {
+//
+//}
 
 template <typename SampleType>
 void ScopeDataCollector<SampleType>::process(const SampleType* data, size_t numSamples) {

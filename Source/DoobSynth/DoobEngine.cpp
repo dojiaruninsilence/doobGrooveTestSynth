@@ -20,9 +20,9 @@ DoobEngine::DoobEngine() {
     setVoiceStealingEnabled(true);
 }
 
-DoobEngine::~DoobEngine() {
-
-}
+//DoobEngine::~DoobEngine() {
+//
+//}
 
 void DoobEngine::prepare(const juce::dsp::ProcessSpec& spec) noexcept {
     setCurrentPlaybackSampleRate(spec.sampleRate);
