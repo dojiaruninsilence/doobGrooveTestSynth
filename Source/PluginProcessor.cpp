@@ -11,7 +11,18 @@
 
 //==============================================================================
 DoobGrooveTestSynthAudioProcessor::DoobGrooveTestSynthAudioProcessor()
-    : AudioProcessor(BusesProperties().withOutput("Output", juce::AudioChannelSet::stereo(), true)) {
+#ifndef JucePlugin_PreferredChannelConfigurations
+    : AudioProcessor(BusesProperties()
+#if ! JucePlugin_IsMidiEffect
+#if ! JucePlugin_IsSynth
+        .withInput("Input", juce::AudioChannelSet::stereo(), true)
+#endif
+        .withOutput("Output", juce::AudioChannelSet::stereo(), true)
+#endif
+    )
+#endif
+{
+    doobEngine.addVoice(new MainVoice);
 }
 
 DoobGrooveTestSynthAudioProcessor::~DoobGrooveTestSynthAudioProcessor() {
@@ -73,8 +84,15 @@ void DoobGrooveTestSynthAudioProcessor::changeProgramName (int index, const juce
 //==============================================================================
 void DoobGrooveTestSynthAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
-    doobEngine.prepare({ sampleRate, (juce::uint32)samplesPerBlock, 2 });
+    doobEngine.setCurrentPlaybackSampleRate(sampleRate);
+    //doobEngine.prepare({ sampleRate, (juce::uint32)samplesPerBlock, 2 });
     midiMessageCollector.reset(sampleRate);
+
+    for (int i = 0; i < doobEngine.getNumVoices(); ++i) {
+        if (auto voice = dynamic_cast<MainVoice*>(doobEngine.getVoice(i))) {
+            voice->prepare({ sampleRate, (juce::uint32)samplesPerBlock, (juce::uint32)getTotalNumOutputChannels() });
+        }
+    }
 }
 
 void DoobGrooveTestSynthAudioProcessor::releaseResources()
@@ -125,6 +143,15 @@ void DoobGrooveTestSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& 
     // this code if your algorithm always overwrites all the output channels.
     for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
+
+    // update per user input
+    for (int i = 0; i < doobEngine.getNumVoices(); ++i) {
+        if (auto voice = dynamic_cast<juce::MPESynthesiserVoice*>(doobEngine.getVoice(i))) {
+            // osc controls
+            // adsr
+            // lfo
+        }
+    }
 
     doobEngine.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());
     scopeDataCollector.process(buffer.getReadPointer(0), (size_t)buffer.getNumSamples());

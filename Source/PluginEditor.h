@@ -12,7 +12,7 @@
 
 #include "PluginProcessor.h"
 
-#include "UI/ScopeComponent.h"
+#include "UI/TestWindow.h"
 
 //==============================================================================
 /**
@@ -31,9 +31,7 @@ private:
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
     DoobGrooveTestSynthAudioProcessor& audioProcessor;
-    juce::MidiKeyboardState midiKeyboardState;
-    juce::MidiKeyboardComponent midiKeyboardComponent{ midiKeyboardState, juce::MidiKeyboardComponent::horizontalKeyboard };
-    ScopeComponent<float> scopeComponent;
+    TestWindow testWindow;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DoobGrooveTestSynthAudioProcessorEditor)
 };

@@ -11,9 +11,11 @@
 #include <JuceHeader.h>
 
 #include "DoobSynth/DoobEngine.h"
+#include "DoobSynth/MainVoice.h"
 
 #include "Utils/AudioBufferQueue.h"
 #include "Utils/ScopeDataCollector.h"
+
 
 //==============================================================================
 /**
@@ -66,6 +68,8 @@ private:
     juce::MidiMessageCollector midiMessageCollector;
     AudioBufferQueue<float> audioBufferQueue;
     ScopeDataCollector<float> scopeDataCollector{ audioBufferQueue };
+
+    //juce::MPESynthesiser synth;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DoobGrooveTestSynthAudioProcessor)
 };

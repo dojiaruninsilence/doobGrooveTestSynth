@@ -8,34 +8,27 @@
 
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
+#include "UI/TestWindow.h"
 
 //==============================================================================
 DoobGrooveTestSynthAudioProcessorEditor::DoobGrooveTestSynthAudioProcessorEditor (DoobGrooveTestSynthAudioProcessor& p)
-    : AudioProcessorEditor(&p), audioProcessor(p), scopeComponent(audioProcessor.getAudioBufferQueue()) {
-    addAndMakeVisible(midiKeyboardComponent);
-    addAndMakeVisible(scopeComponent);
+    : AudioProcessorEditor(&p), audioProcessor(p), testWindow(p) {
+    addAndMakeVisible(testWindow);
 
-    setSize(400, 300);
-
-    auto area = getLocalBounds();
-    scopeComponent.setTopLeftPosition(0, 80);
-    scopeComponent.setSize(area.getWidth(), area.getHeight() - 100);
-
-    midiKeyboardComponent.setMidiChannel(2);
-    midiKeyboardState.addListener(&audioProcessor.getMidiMessageCollector());
+    setSize(800, 300);
 }
 
 DoobGrooveTestSynthAudioProcessorEditor::~DoobGrooveTestSynthAudioProcessorEditor() {
-    midiKeyboardState.removeListener(&audioProcessor.getMidiMessageCollector());
+    
 }
 
 //==============================================================================
 void DoobGrooveTestSynthAudioProcessorEditor::paint (juce::Graphics& g) {
-    // (Our component is opaque, so we must completely fill the background with a solid colour)
-    g.fillAll(getLookAndFeel().findColour(juce::ResizableWindow::backgroundColourId));
+    // fill black
+    g.fillAll(juce::Colours::red);
 }
 
 void DoobGrooveTestSynthAudioProcessorEditor::resized() {
     auto area = getLocalBounds();
-    midiKeyboardComponent.setBounds(area.removeFromTop(80).reduced(8));
+    testWindow.setBounds(0, 0, area.getWidth() / 2, area.getHeight());
 }
