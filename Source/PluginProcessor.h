@@ -62,12 +62,16 @@ public:
     juce::MidiMessageCollector& getMidiMessageCollector() noexcept;
     AudioBufferQueue<float>& getAudioBufferQueue() noexcept;
 
+    juce::AudioProcessorValueTreeState apvts;
+
 private:
     //==============================================================================
     DoobEngine doobEngine;
+    MainVoice mainVoice;
     juce::MidiMessageCollector midiMessageCollector;
     AudioBufferQueue<float> audioBufferQueue;
     ScopeDataCollector<float> scopeDataCollector{ audioBufferQueue };
+    juce::AudioProcessorValueTreeState::ParameterLayout createParams();
 
     //juce::MPESynthesiser synth;
 

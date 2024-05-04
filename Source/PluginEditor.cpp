@@ -12,8 +12,9 @@
 
 //==============================================================================
 DoobGrooveTestSynthAudioProcessorEditor::DoobGrooveTestSynthAudioProcessorEditor (DoobGrooveTestSynthAudioProcessor& p)
-    : AudioProcessorEditor(&p), audioProcessor(p), testWindow(p) {
+    : AudioProcessorEditor(&p), audioProcessor(p), testWindow(p), adsr(audioProcessor.apvts) {
     addAndMakeVisible(testWindow);
+    addAndMakeVisible(adsr);
 
     setSize(800, 300);
 }
@@ -31,4 +32,5 @@ void DoobGrooveTestSynthAudioProcessorEditor::paint (juce::Graphics& g) {
 void DoobGrooveTestSynthAudioProcessorEditor::resized() {
     auto area = getLocalBounds();
     testWindow.setBounds(0, 0, area.getWidth() / 2, area.getHeight());
+    adsr.setBounds(testWindow.getRight(), 0, area.getWidth() / 2, area.getHeight());
 }

@@ -17,7 +17,7 @@ DoobEngine::DoobEngine() {
         addVoice(new MainVoice);
     }
 
-    setVoiceStealingEnabled(true);
+    //setVoiceStealingEnabled(true);
 }
 
 //DoobEngine::~DoobEngine() {

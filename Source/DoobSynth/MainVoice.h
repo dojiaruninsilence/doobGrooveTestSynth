@@ -35,6 +35,7 @@ public:
 private:
     juce::HeapBlock<char> heapBlock;
     juce::dsp::AudioBlock<float> tempBlock;
+    juce::AudioBuffer<float> synthBuffer;
     AdsrData adsr;
 
 
