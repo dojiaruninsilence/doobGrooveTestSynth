@@ -22,7 +22,9 @@ DoobGrooveTestSynthAudioProcessor::DoobGrooveTestSynthAudioProcessor()
     ), apvts(*this, nullptr, "Parameters", createParams())
 #endif
 {
-    doobEngine.addVoice(new MainVoice);
+    for (int i = 0; i < 5; ++i) {
+        doobEngine.addVoice(new MainVoice);
+    }
 }
 
 DoobGrooveTestSynthAudioProcessor::~DoobGrooveTestSynthAudioProcessor() {
@@ -156,7 +158,26 @@ void DoobGrooveTestSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& 
             auto& sustain = *apvts.getRawParameterValue("SUSTAIN");
             auto& release = *apvts.getRawParameterValue("RELEASE");
 
-            voice->update(attack.load(), decay.load(), sustain.load(), release.load());
+            auto& osc1Choice = *apvts.getRawParameterValue("OSC1");
+            auto& osc2Choice = *apvts.getRawParameterValue("OSC2");
+            auto& osc1Gain = *apvts.getRawParameterValue("OSC1GAIN");
+            auto& osc2Gain = *apvts.getRawParameterValue("OSC2GAIN");
+            auto& osc1Pitch = *apvts.getRawParameterValue("OSC1PITCH");
+            auto& osc2Pitch = *apvts.getRawParameterValue("OSC2PITCH");
+
+            auto& osc1 = voice->getOscillator1();
+            auto& osc2 = voice->getOscillator2();
+            auto& adsr = voice->getAdsr();
+
+            osc1.setType(osc1Choice);
+            osc1.setLevel(osc1Gain);
+            osc1.setPitchVal(osc1Pitch);
+
+            osc2.setType(osc1Choice);
+            osc2.setLevel(osc1Gain);
+            osc2.setPitchVal(osc1Pitch);
+
+            adsr.update(attack.load(), decay.load(), sustain.load(), release.load());
         }
     }
 
@@ -208,10 +229,17 @@ juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 juce::AudioProcessorValueTreeState::ParameterLayout DoobGrooveTestSynthAudioProcessor::createParams() {
     std::vector<std::unique_ptr<juce::RangedAudioParameter>> params;
 
-    // osc select
-    params.push_back(std::make_unique<juce::AudioParameterChoice>("OSC", "Oscillator", juce::StringArray{ "Sine", "Saw", "Square" }, 0));
+    // osc select    
+    params.push_back(std::make_unique<juce::AudioParameterChoice>("OSC1", "Oscillator 1", juce::StringArray{ "Sine", "Saw", "Square" }, 0));
+    params.push_back(std::make_unique<juce::AudioParameterChoice>("OSC2", "Oscillator 2", juce::StringArray{ "Sine", "Saw", "Square" }, 0));
 
-    // adsr
+    // osc gain
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("OSC1GAIN", "Oscillator 1 Gain", juce::NormalisableRange<float>{ -40.0f, 0.2f, }, 0.1f, "dB"));
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("OSC2GAIN", "Oscillator 2 Gain", juce::NormalisableRange<float>{ -40.0f, 0.2f, }, 0.1f, "dB"));
+
+    params.push_back(std::make_unique<juce::AudioParameterInt>("OSC1PITCH", "Oscillator 1 Pitch", -48, 48, 0));
+    params.push_back(std::make_unique<juce::AudioParameterInt>("OSC2PITCH", "Oscillator 2 Pitch", -48, 48, 0));
+
     // adsr
     params.push_back(std::make_unique<juce::AudioParameterFloat>("ATTACK", "Attack", juce::NormalisableRange<float> { 0.1f, 1.0f, }, 0.1f));
     params.push_back(std::make_unique<juce::AudioParameterFloat>("DECAY", "Decay", juce::NormalisableRange<float> { 0.1f, 1.0f, }, 0.1f));

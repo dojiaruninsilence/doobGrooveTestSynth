@@ -18,8 +18,10 @@ public:
     MainOscillator();
     //~MainOscillator();
 
+    void setType(const int oscSelection);
     void setFrequency(Type newValue, bool force = false);
     void setLevel(Type newValue);
+    void setPitchVal(Type pitch, bool force = false);
     void reset() noexcept;
 
     template <typename ProcessContext>
@@ -33,6 +35,9 @@ private:
         oscIndex,
         gainIndex
     };
+
+    Type pitchVal{ 0 };
+    Type lastMidiNote{ 0 };
 
     juce::dsp::ProcessorChain<juce::dsp::Oscillator<Type>, juce::dsp::Gain<Type>> processorChain;
 };

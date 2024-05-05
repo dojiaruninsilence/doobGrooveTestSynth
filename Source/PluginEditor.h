@@ -12,8 +12,9 @@
 
 #include "PluginProcessor.h"
 
-#include "UI/TestWindow.h"
 #include "UI/AdsrComponent.h"
+#include "UI/MainOscComponent.h"
+#include "UI/TestWindow.h"
 
 //==============================================================================
 /**
@@ -29,14 +30,14 @@ public:
     void resized() override;
 
 private:
-    juce::ComboBox oscSelector;
-
-    std::unique_ptr<juce::AudioProcessorValueTreeState::ComboBoxAttachment> oscSelAttachment;
 
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
     DoobGrooveTestSynthAudioProcessor& audioProcessor;
     TestWindow testWindow;
+    MainOscComponent osc1;
+    MainOscComponent osc2;
+
     AdsrComponent adsr;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DoobGrooveTestSynthAudioProcessorEditor)

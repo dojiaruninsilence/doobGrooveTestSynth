@@ -34,6 +34,8 @@ void MainVoice::noteStarted() {
 
     processorChain.get<osc1Index>().setFrequency(freqHz, true);
     processorChain.get<osc1Index>().setLevel(velocity);
+    processorChain.get<osc2Index>().setFrequency(freqHz, true);
+    processorChain.get<osc2Index>().setLevel(velocity);
 
     adsr.noteOn();
 }
@@ -41,6 +43,7 @@ void MainVoice::noteStarted() {
 void MainVoice::notePitchbendChanged() {
     auto freqHz = (float)getCurrentlyPlayingNote().getFrequencyInHertz();
     processorChain.get<osc1Index>().setFrequency(freqHz);
+    processorChain.get<osc2Index>().setFrequency(freqHz);
 }
 
 void MainVoice::noteStopped(bool allowTailOff) {
@@ -62,10 +65,6 @@ void MainVoice::noteKeyStateChanged() {
 
 void MainVoice::noteTimbreChanged() {
 
-}
-
-void MainVoice::update(const float attack, const float decay, const float sustain, const float release) {
-    adsr.updateADSR(attack, decay, sustain, release);
 }
 
 void MainVoice::renderNextBlock(juce::AudioBuffer<float>& outputBuffer, int startSample, int numSamples) {

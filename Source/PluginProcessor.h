@@ -13,6 +13,8 @@
 #include "DoobSynth/DoobEngine.h"
 #include "DoobSynth/MainVoice.h"
 
+#include "Modules/AdsrData.h"
+
 #include "Utils/AudioBufferQueue.h"
 #include "Utils/ScopeDataCollector.h"
 
@@ -68,6 +70,7 @@ private:
     //==============================================================================
     DoobEngine doobEngine;
     MainVoice mainVoice;
+
     juce::MidiMessageCollector midiMessageCollector;
     AudioBufferQueue<float> audioBufferQueue;
     ScopeDataCollector<float> scopeDataCollector{ audioBufferQueue };

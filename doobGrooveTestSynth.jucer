@@ -28,6 +28,10 @@
         <FILE id="OKjDEt" name="AdsrComponent.cpp" compile="1" resource="0"
               file="Source/UI/AdsrComponent.cpp"/>
         <FILE id="IAoFLM" name="AdsrComponent.h" compile="0" resource="0" file="Source/UI/AdsrComponent.h"/>
+        <FILE id="E2kjhY" name="MainOscComponent.cpp" compile="1" resource="0"
+              file="Source/UI/MainOscComponent.cpp"/>
+        <FILE id="YmM0jn" name="MainOscComponent.h" compile="0" resource="0"
+              file="Source/UI/MainOscComponent.h"/>
         <FILE id="Wgh656" name="ScopeComponent.cpp" compile="1" resource="0"
               file="Source/UI/ScopeComponent.cpp"/>
         <FILE id="Z6E8oC" name="ScopeComponent.h" compile="0" resource="0"

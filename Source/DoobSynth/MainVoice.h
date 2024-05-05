@@ -31,7 +31,9 @@ public:
 
     void renderNextBlock(juce::AudioBuffer<float>& outputBuffer, int startSample, int numSamples) override;
 
-    void update(const float attack, const float decay, const float sustain, const float release);
+    MainOscillator<float>& getOscillator1() { return processorChain.get<osc1Index>(); }
+    MainOscillator<float>& getOscillator2() { return processorChain.get<osc2Index>(); }
+    AdsrData& getAdsr() { return adsr; }
 private:
     juce::HeapBlock<char> heapBlock;
     juce::dsp::AudioBlock<float> tempBlock;
@@ -41,10 +43,11 @@ private:
 
     enum {
         osc1Index,
+        osc2Index,
         masterGainIndex
     };
 
-    juce::dsp::ProcessorChain<MainOscillator<float>, juce::dsp::Gain<float>> processorChain;
+    juce::dsp::ProcessorChain<MainOscillator<float>, MainOscillator<float>, juce::dsp::Gain<float>> processorChain;
 
     bool isPrepared = false;
 
