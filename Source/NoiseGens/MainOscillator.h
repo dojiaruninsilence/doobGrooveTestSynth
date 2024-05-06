@@ -22,6 +22,7 @@ public:
     void setFrequency(Type newValue, bool force = false);
     void setLevel(Type newValue);
     void setPitchVal(Type pitch, bool force = false);
+    void setFrequencyAdjustVal(Type newValue);
     void reset() noexcept;
 
     template <typename ProcessContext>
@@ -38,6 +39,8 @@ private:
 
     Type pitchVal{ 0 };
     Type lastMidiNote{ 0 };
+
+    Type frequencyAdjustVal{ 0 };
 
     juce::dsp::ProcessorChain<juce::dsp::Oscillator<Type>, juce::dsp::Gain<Type>> processorChain;
 };

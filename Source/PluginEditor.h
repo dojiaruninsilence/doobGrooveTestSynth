@@ -15,6 +15,7 @@
 #include "UI/AdsrComponent.h"
 #include "UI/MainOscComponent.h"
 #include "UI/TestWindow.h"
+#include "UI/WhiteNoiseGeneratorComponent.h"
 
 //==============================================================================
 /**
@@ -35,6 +36,7 @@ private:
     // access the processor object that created it.
     DoobGrooveTestSynthAudioProcessor& audioProcessor;
     TestWindow testWindow;
+    WhiteNoiseGeneratorComponent whiteNoise;
     MainOscComponent osc1;
     MainOscComponent osc2;
 

@@ -17,7 +17,7 @@ DoobEngine::DoobEngine() {
         addVoice(new MainVoice);
     }
 
-    //setVoiceStealingEnabled(true);
+    setVoiceStealingEnabled(true);
 }
 
 //DoobEngine::~DoobEngine() {
@@ -28,7 +28,9 @@ void DoobEngine::prepare(const juce::dsp::ProcessSpec& spec) noexcept {
     setCurrentPlaybackSampleRate(spec.sampleRate);
 
     for (auto* v : voices) {
-        dynamic_cast<MainVoice*>(v)->prepare(spec);
+        if (auto* mainVoice = dynamic_cast<MainVoice*>(v)) {
+            mainVoice->prepare(spec);
+        }
     }
 }
 

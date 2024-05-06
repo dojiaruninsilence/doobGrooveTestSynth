@@ -15,7 +15,6 @@
       </GROUP>
       <GROUP id="{E2164F24-6965-11F6-8B66-B44CBB6BF40A}" name="Effects"/>
       <GROUP id="{7467550A-E919-2988-FB76-DAAD27DF4B24}" name="Modules">
-        <FILE id="KaV3Du" name="AdsrData.cpp" compile="1" resource="0" file="Source/Modules/AdsrData.cpp"/>
         <FILE id="kGUWI5" name="AdsrData.h" compile="0" resource="0" file="Source/Modules/AdsrData.h"/>
       </GROUP>
       <GROUP id="{DB5F2034-1F34-B91D-B4C7-C26414FA3C28}" name="NoiseGens">
@@ -23,6 +22,8 @@
               file="Source/NoiseGens/MainOscillator.cpp"/>
         <FILE id="DKBxcT" name="MainOscillator.h" compile="0" resource="0"
               file="Source/NoiseGens/MainOscillator.h"/>
+        <FILE id="m7Pm7Y" name="WhiteNoiseGenerator.h" compile="0" resource="0"
+              file="Source/NoiseGens/WhiteNoiseGenerator.h"/>
       </GROUP>
       <GROUP id="{514CB233-7458-E149-DD1D-5A8079F71B3D}" name="UI">
         <FILE id="OKjDEt" name="AdsrComponent.cpp" compile="1" resource="0"
@@ -38,6 +39,10 @@
               file="Source/UI/ScopeComponent.h"/>
         <FILE id="Jm8ZOt" name="TestWindow.cpp" compile="1" resource="0" file="Source/UI/TestWindow.cpp"/>
         <FILE id="J1gbtr" name="TestWindow.h" compile="0" resource="0" file="Source/UI/TestWindow.h"/>
+        <FILE id="xEB0N4" name="WhiteNoiseGeneratorComponent.cpp" compile="1"
+              resource="0" file="Source/UI/WhiteNoiseGeneratorComponent.cpp"/>
+        <FILE id="CoerJ0" name="WhiteNoiseGeneratorComponent.h" compile="0"
+              resource="0" file="Source/UI/WhiteNoiseGeneratorComponent.h"/>
       </GROUP>
       <GROUP id="{527314F4-7EF5-1059-4300-DF672FFEC256}" name="Utils">
         <FILE id="oUktXv" name="AudioBufferQueue.cpp" compile="1" resource="0"

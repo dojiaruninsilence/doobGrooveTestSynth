@@ -165,17 +165,26 @@ void DoobGrooveTestSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& 
             auto& osc1Pitch = *apvts.getRawParameterValue("OSC1PITCH");
             auto& osc2Pitch = *apvts.getRawParameterValue("OSC2PITCH");
 
+            auto& whiteNoiseGenGain = *apvts.getRawParameterValue("WHITE_NOISE_GAIN");
+            auto& whiteNoiseGenMinRandVal = *apvts.getRawParameterValue("WHITE_NOISE_MIN_RAND_VAL");
+            auto& whiteNoiseGenMaxRandVal = *apvts.getRawParameterValue("WHITE_NOISE_MAX_RAND_VAL");
+
             auto& osc1 = voice->getOscillator1();
             auto& osc2 = voice->getOscillator2();
+            auto& whiteNoiseGen = voice->getWhiteNoiseGen();
             auto& adsr = voice->getAdsr();
 
             osc1.setType(osc1Choice);
             osc1.setLevel(osc1Gain);
-            osc1.setPitchVal(osc1Pitch);
+            osc1.setFrequencyAdjustVal(osc1Pitch);
 
-            osc2.setType(osc1Choice);
-            osc2.setLevel(osc1Gain);
-            osc2.setPitchVal(osc1Pitch);
+            osc2.setType(osc2Choice);
+            osc2.setLevel(osc2Gain);
+            osc2.setFrequencyAdjustVal(osc2Pitch);
+
+            whiteNoiseGen.setLevel(whiteNoiseGenGain);
+            whiteNoiseGen.setMinRandVal(whiteNoiseGenMinRandVal);
+            whiteNoiseGen.setMaxRandVal(whiteNoiseGenMaxRandVal);
 
             adsr.update(attack.load(), decay.load(), sustain.load(), release.load());
         }
@@ -234,11 +243,16 @@ juce::AudioProcessorValueTreeState::ParameterLayout DoobGrooveTestSynthAudioProc
     params.push_back(std::make_unique<juce::AudioParameterChoice>("OSC2", "Oscillator 2", juce::StringArray{ "Sine", "Saw", "Square" }, 0));
 
     // osc gain
-    params.push_back(std::make_unique<juce::AudioParameterFloat>("OSC1GAIN", "Oscillator 1 Gain", juce::NormalisableRange<float>{ -40.0f, 0.2f, }, 0.1f, "dB"));
-    params.push_back(std::make_unique<juce::AudioParameterFloat>("OSC2GAIN", "Oscillator 2 Gain", juce::NormalisableRange<float>{ -40.0f, 0.2f, }, 0.1f, "dB"));
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("OSC1GAIN", "Oscillator 1 Gain", juce::NormalisableRange<float>{ 0.0f, 1.0f, }, 0.1f, "dB"));
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("OSC2GAIN", "Oscillator 2 Gain", juce::NormalisableRange<float>{ 0.0f, 1.0f, }, 0.1f, "dB"));
 
-    params.push_back(std::make_unique<juce::AudioParameterInt>("OSC1PITCH", "Oscillator 1 Pitch", -48, 48, 0));
-    params.push_back(std::make_unique<juce::AudioParameterInt>("OSC2PITCH", "Oscillator 2 Pitch", -48, 48, 0));
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("OSC1PITCH", "Oscillator 1 Pitch", 0.0f, 2.0f, 1.0));
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("OSC2PITCH", "Oscillator 2 Pitch", 0.0f, 2.0f, 1.0));
+
+    // white noise generator
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("WHITE_NOISE_GAIN", "White noise generator gain", 0.0f, 1.0f, 0.0));
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("WHITE_NOISE_MIN_RAND_VAL", "White noise generator minRandVal", -1.0f, 1.0f, -1.0));
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("WHITE_NOISE_MAX_RAND_VAL", "White noise generator maxRandVal", -1.0f, 1.0f, -1.0));
 
     // adsr
     params.push_back(std::make_unique<juce::AudioParameterFloat>("ATTACK", "Attack", juce::NormalisableRange<float> { 0.1f, 1.0f, }, 0.1f));

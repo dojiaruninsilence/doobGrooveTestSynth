@@ -20,8 +20,6 @@ MainVoice::MainVoice() {
 //}
 
 void MainVoice::prepare(const juce::dsp::ProcessSpec& spec) {
-    adsr.setSampleRate(spec.sampleRate);
-
     tempBlock = juce::dsp::AudioBlock<float>(heapBlock, spec.numChannels, spec.maximumBlockSize);
     processorChain.prepare(spec);
 
@@ -37,7 +35,9 @@ void MainVoice::noteStarted() {
     processorChain.get<osc2Index>().setFrequency(freqHz, true);
     processorChain.get<osc2Index>().setLevel(velocity);
 
-    adsr.noteOn();
+    processorChain.get<whiteNoiseGenIndex>().setLevel(velocity);
+
+    processorChain.get<adsrIndex>().noteOn();
 }
 
 void MainVoice::notePitchbendChanged() {
@@ -48,9 +48,9 @@ void MainVoice::notePitchbendChanged() {
 
 void MainVoice::noteStopped(bool allowTailOff) {
     //clearCurrentNote();
-    adsr.noteOff();
+    processorChain.get<adsrIndex>().noteOff();
 
-    if (!allowTailOff || !adsr.isActive()) {
+    if (!allowTailOff || !processorChain.get<adsrIndex>().isActive()) {
         clearCurrentNote();
     }
 }
@@ -89,12 +89,12 @@ void MainVoice::renderNextBlock(juce::AudioBuffer<float>& outputBuffer, int star
 
     juce::dsp::AudioBlock<float>(outputBuffer).getSubBlock((size_t)startSample, (size_t)numSamples).add(tempBlock);*/
 
-    adsr.applyEnvelopeToBuffer(synthBuffer, 0, synthBuffer.getNumSamples());
+    //adsr.applyEnvelopeToBuffer(synthBuffer, 0, synthBuffer.getNumSamples());
 
     for (int channel = 0; channel < outputBuffer.getNumChannels(); ++channel) {
         outputBuffer.addFrom(channel, startSample, synthBuffer, channel, 0, numSamples);
 
-        if (!adsr.isActive()) {
+        if (!processorChain.get<adsrIndex>().isActive()) {
             clearCurrentNote();
         }
     }

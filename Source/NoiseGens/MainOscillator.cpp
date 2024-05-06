@@ -47,7 +47,7 @@ void MainOscillator<Type>::setType(const int oscSelection) {
 template <typename Type>
 void MainOscillator<Type>::setFrequency(Type newValue, bool force) {
     auto& osc = processorChain.template get<oscIndex>();
-    osc.setFrequency(newValue + pitchVal, force);
+    osc.setFrequency((newValue + pitchVal) * frequencyAdjustVal, force);
     lastMidiNote = newValue;
 }
 
@@ -63,6 +63,11 @@ void MainOscillator<Type>::setPitchVal(Type pitch, bool force) {
     pitchVal = pitch;
     osc.setFrequency(lastMidiNote + pitchVal);
 
+}
+
+template <typename Type>
+void MainOscillator<Type>::setFrequencyAdjustVal(Type newValue) {
+    frequencyAdjustVal = newValue;
 }
 
 template <typename Type>

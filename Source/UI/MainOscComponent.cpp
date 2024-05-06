@@ -18,11 +18,11 @@ MainOscComponent::MainOscComponent(juce::AudioProcessorValueTreeState& apvts, ju
     oscSelector.setSelectedItemIndex(0);
     addAndMakeVisible(oscSelector);
 
-    gainSlider.setSliderStyle(juce::Slider::SliderStyle::LinearVertical);
+    gainSlider.setSliderStyle(juce::Slider::SliderStyle::LinearHorizontal);
     gainSlider.setTextBoxStyle(juce::Slider::TextBoxBelow, true, 50, 25);
     addAndMakeVisible(gainSlider);
 
-    pitchSlider.setSliderStyle(juce::Slider::SliderStyle::LinearVertical);
+    pitchSlider.setSliderStyle(juce::Slider::SliderStyle::LinearHorizontal);
     pitchSlider.setTextBoxStyle(juce::Slider::TextBoxBelow, true, 50, 25);
     addAndMakeVisible(pitchSlider);
 
@@ -43,7 +43,8 @@ void MainOscComponent::paint (juce::Graphics& g) {
 
 void MainOscComponent::resized() {
     auto bounds = getLocalBounds();
-    oscSelector.setBounds(bounds.removeFromLeft(getWidth() / 2));
-    gainSlider.setBounds(bounds.removeFromLeft(getWidth() / 4));
-    pitchSlider.setBounds(bounds);
+    auto unitHeight = bounds.getHeight() / 3;
+    oscSelector.setBounds(0, 0, bounds.getWidth(), unitHeight);
+    gainSlider.setBounds(0, oscSelector.getBottom(), bounds.getWidth(), unitHeight);
+    pitchSlider.setBounds(0, gainSlider.getBottom(), bounds.getWidth(), unitHeight);
 }
