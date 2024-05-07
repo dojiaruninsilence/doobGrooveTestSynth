@@ -13,6 +13,8 @@
 #include "DoobSynth/DoobEngine.h"
 #include "DoobSynth/MainVoice.h"
 
+#include "Effects/CustomLadderFilter.h"
+
 #include "Modules/AdsrData.h"
 
 #include "Utils/AudioBufferQueue.h"

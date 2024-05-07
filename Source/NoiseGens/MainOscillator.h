@@ -12,6 +12,8 @@
 
 #include <JuceHeader.h>
 
+#include "../Effects/CustomLadderFilter.h"
+
 template <typename Type>
 class MainOscillator {
 public:
@@ -31,9 +33,12 @@ public:
     }
 
     void prepare(const juce::dsp::ProcessSpec& spec);
+
+    CustomLadderFilter<Type>& getLadderFilter() { return processorChain.get<ladderFilterIndex>(); }
 private:
     enum {
         oscIndex,
+        ladderFilterIndex,
         gainIndex
     };
 
@@ -42,7 +47,7 @@ private:
 
     Type frequencyAdjustVal{ 0 };
 
-    juce::dsp::ProcessorChain<juce::dsp::Oscillator<Type>, juce::dsp::Gain<Type>> processorChain;
+    juce::dsp::ProcessorChain<juce::dsp::Oscillator<Type>, CustomLadderFilter<Type>, juce::dsp::Gain<Type>> processorChain;
 };
 
 template class MainOscillator<float>;

@@ -13,6 +13,7 @@
 #include "PluginProcessor.h"
 
 #include "UI/AdsrComponent.h"
+#include "UI/CustomLadderFilterComponent.h"
 #include "UI/MainOscComponent.h"
 #include "UI/TestWindow.h"
 #include "UI/WhiteNoiseGeneratorComponent.h"

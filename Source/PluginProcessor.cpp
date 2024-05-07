@@ -165,6 +165,15 @@ void DoobGrooveTestSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& 
             auto& osc1Pitch = *apvts.getRawParameterValue("OSC1PITCH");
             auto& osc2Pitch = *apvts.getRawParameterValue("OSC2PITCH");
 
+            auto& osc1LadderMode = *apvts.getRawParameterValue("OSC1_LAD_FILT_MODE");
+            auto& osc2LadderMode = *apvts.getRawParameterValue("OSC2_LAD_FILT_MODE");
+            auto& osc1FrequencyCutoff = *apvts.getRawParameterValue("OSC1_FREQ_CUTOFF");
+            auto& osc2FrequencyCutoff = *apvts.getRawParameterValue("OSC2_FREQ_CUTOFF");
+            auto& osc1Resonance = *apvts.getRawParameterValue("OSC1_RESONANCE");
+            auto& osc2Resonance = *apvts.getRawParameterValue("OSC2_RESONANCE");
+            auto& osc1Drive = *apvts.getRawParameterValue("OSC1_DRIVE");
+            auto& osc2Drive = *apvts.getRawParameterValue("OSC2_DRIVE");
+
             auto& whiteNoiseGenGain = *apvts.getRawParameterValue("WHITE_NOISE_GAIN");
             auto& whiteNoiseGenMinRandVal = *apvts.getRawParameterValue("WHITE_NOISE_MIN_RAND_VAL");
             auto& whiteNoiseGenMaxRandVal = *apvts.getRawParameterValue("WHITE_NOISE_MAX_RAND_VAL");
@@ -177,16 +186,18 @@ void DoobGrooveTestSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& 
             osc1.setType(osc1Choice);
             osc1.setLevel(osc1Gain);
             osc1.setFrequencyAdjustVal(osc1Pitch);
+            osc1.getLadderFilter().update(osc1LadderMode, osc1FrequencyCutoff, osc1Resonance, osc1Drive);
 
             osc2.setType(osc2Choice);
             osc2.setLevel(osc2Gain);
             osc2.setFrequencyAdjustVal(osc2Pitch);
+            osc2.getLadderFilter().update(osc2LadderMode, osc2FrequencyCutoff, osc2Resonance, osc2Drive);
 
             whiteNoiseGen.setLevel(whiteNoiseGenGain);
             whiteNoiseGen.setMinRandVal(whiteNoiseGenMinRandVal);
             whiteNoiseGen.setMaxRandVal(whiteNoiseGenMaxRandVal);
 
-            adsr.update(attack.load(), decay.load(), sustain.load(), release.load());
+            adsr.update(attack, decay, sustain, release);
         }
     }
 
@@ -246,8 +257,25 @@ juce::AudioProcessorValueTreeState::ParameterLayout DoobGrooveTestSynthAudioProc
     params.push_back(std::make_unique<juce::AudioParameterFloat>("OSC1GAIN", "Oscillator 1 Gain", juce::NormalisableRange<float>{ 0.0f, 1.0f, }, 0.1f, "dB"));
     params.push_back(std::make_unique<juce::AudioParameterFloat>("OSC2GAIN", "Oscillator 2 Gain", juce::NormalisableRange<float>{ 0.0f, 1.0f, }, 0.1f, "dB"));
 
+    // osc pitch
     params.push_back(std::make_unique<juce::AudioParameterFloat>("OSC1PITCH", "Oscillator 1 Pitch", 0.0f, 2.0f, 1.0));
     params.push_back(std::make_unique<juce::AudioParameterFloat>("OSC2PITCH", "Oscillator 2 Pitch", 0.0f, 2.0f, 1.0));
+
+    // osc ladder filter mode
+    params.push_back(std::make_unique<juce::AudioParameterChoice>("OSC1_LAD_FILT_MODE", "Oscillator 1 ladder filter mode", juce::StringArray{ "Bpf12", "Bpf24", "Hpf12", "Hpf24", "Lpf12", "Lpf24" }, 0));
+    params.push_back(std::make_unique<juce::AudioParameterChoice>("OSC2_LAD_FILT_MODE", "Oscillator 2 ladder filter mode", juce::StringArray{ "Bpf12", "Bpf24", "Hpf12", "Hpf24", "Lpf12", "Lpf24" }, 0));
+
+    // osc ladder cutoff frequency
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("OSC1_FREQ_CUTOFF", "Oscillator 1 frequency cutoff", juce::NormalisableRange<float>{ 0.0f, 4400.0f, }, 0.0f));
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("OSC2_FREQ_CUTOFF", "Oscillator 2 frequency cutoff", juce::NormalisableRange<float>{ 0.0f, 4400.0f, }, 0.0f));
+
+    // osc ladder resosance
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("OSC1_RESONANCE", "Oscillator 1 resonance", juce::NormalisableRange<float>{ 0.0f, 1.0f, }, 0.1f, "dB"));
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("OSC2_RESONANCE", "Oscillator 2 resonance", juce::NormalisableRange<float>{ 0.0f, 1.0f, }, 0.1f, "dB"));
+
+    // osc ladder drive
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("OSC1_DRIVE", "Oscillator 1 drive", juce::NormalisableRange<float>{ 0.0f, 1.0f, }, 0.1f, "dB"));
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("OSC2_DRIVE", "Oscillator 2 drive", juce::NormalisableRange<float>{ 0.0f, 1.0f, }, 0.1f, "dB"));
 
     // white noise generator
     params.push_back(std::make_unique<juce::AudioParameterFloat>("WHITE_NOISE_GAIN", "White noise generator gain", 0.0f, 1.0f, 0.0));

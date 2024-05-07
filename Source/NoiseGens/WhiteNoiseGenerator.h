@@ -32,7 +32,7 @@ public:
 
     template <typename ProcessContext>
     void process(const ProcessContext& context) noexcept {
-        if (gain > 0.1) {
+        if (gain > 0.01) {
             using BlockType = typename ProcessContext::AudioBlockType;
             const BlockType& audioBlock = context.getOutputBlock();
 
@@ -46,11 +46,11 @@ public:
                     // Log the generated sample for debugging
                     DBG("Generated sample: " << whiteNoiseSample);
 
-                    //// Ensure the sample is within the valid range for audio data
-                    //if (whiteNoiseSample > 1.0f)
-                    //    whiteNoiseSample = 1.0f;
-                    //else if (whiteNoiseSample < -1.0f)
-                    //    whiteNoiseSample = -1.0f;
+                    // Ensure the sample is within the valid range for audio data
+                    if (whiteNoiseSample > 1.0f)
+                        whiteNoiseSample = 1.0f;
+                    else if (whiteNoiseSample < -1.0f)
+                        whiteNoiseSample = -1.0f;
 
                 
                         channelData[sampleIndex] += whiteNoiseSample;

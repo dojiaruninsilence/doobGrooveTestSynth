@@ -13,7 +13,10 @@
         <FILE id="tSEY6N" name="MainVoice.cpp" compile="1" resource="0" file="Source/DoobSynth/MainVoice.cpp"/>
         <FILE id="oEMtRD" name="MainVoice.h" compile="0" resource="0" file="Source/DoobSynth/MainVoice.h"/>
       </GROUP>
-      <GROUP id="{E2164F24-6965-11F6-8B66-B44CBB6BF40A}" name="Effects"/>
+      <GROUP id="{E2164F24-6965-11F6-8B66-B44CBB6BF40A}" name="Effects">
+        <FILE id="MRga2Z" name="CustomLadderFilter.h" compile="0" resource="0"
+              file="Source/Effects/CustomLadderFilter.h"/>
+      </GROUP>
       <GROUP id="{7467550A-E919-2988-FB76-DAAD27DF4B24}" name="Modules">
         <FILE id="kGUWI5" name="AdsrData.h" compile="0" resource="0" file="Source/Modules/AdsrData.h"/>
       </GROUP>
@@ -29,6 +32,10 @@
         <FILE id="OKjDEt" name="AdsrComponent.cpp" compile="1" resource="0"
               file="Source/UI/AdsrComponent.cpp"/>
         <FILE id="IAoFLM" name="AdsrComponent.h" compile="0" resource="0" file="Source/UI/AdsrComponent.h"/>
+        <FILE id="owk7nc" name="CustomLadderFilterComponent.cpp" compile="1"
+              resource="0" file="Source/UI/CustomLadderFilterComponent.cpp"/>
+        <FILE id="NPDQLm" name="CustomLadderFilterComponent.h" compile="0"
+              resource="0" file="Source/UI/CustomLadderFilterComponent.h"/>
         <FILE id="E2kjhY" name="MainOscComponent.cpp" compile="1" resource="0"
               file="Source/UI/MainOscComponent.cpp"/>
         <FILE id="YmM0jn" name="MainOscComponent.h" compile="0" resource="0"
@@ -45,6 +52,26 @@
               resource="0" file="Source/UI/WhiteNoiseGeneratorComponent.h"/>
       </GROUP>
       <GROUP id="{527314F4-7EF5-1059-4300-DF672FFEC256}" name="Utils">
+        <GROUP id="{4AB8660E-91C8-27AC-763B-43E70BB6F0DB}" name="DoobMath">
+          <GROUP id="{4FA5428B-FF1B-EF35-2B41-DF2EB991B6DF}" name="Waveforms">
+            <FILE id="akg3fm" name="CustomWaveform.cpp" compile="1" resource="0"
+                  file="Source/Utils/DoobMath/Waveforms/CustomWaveform.cpp"/>
+            <FILE id="iXb9UZ" name="CustomWaveform.h" compile="0" resource="0"
+                  file="Source/Utils/DoobMath/Waveforms/CustomWaveform.h"/>
+            <FILE id="cwZK4Z" name="SawtoothWave.cpp" compile="1" resource="0"
+                  file="Source/Utils/DoobMath/Waveforms/SawtoothWave.cpp"/>
+            <FILE id="bwdkwC" name="SawtoothWave.h" compile="0" resource="0" file="Source/Utils/DoobMath/Waveforms/SawtoothWave.h"/>
+            <FILE id="htHWW0" name="SineWave.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/Waveforms/SineWave.cpp"/>
+            <FILE id="AOgfnc" name="SineWave.h" compile="0" resource="0" file="Source/Utils/DoobMath/Waveforms/SineWave.h"/>
+            <FILE id="YAsV1P" name="SquareWave.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/Waveforms/SquareWave.cpp"/>
+            <FILE id="K1aaAo" name="SquareWave.h" compile="0" resource="0" file="Source/Utils/DoobMath/Waveforms/SquareWave.h"/>
+            <FILE id="f7o7OU" name="TriangleWave.cpp" compile="1" resource="0"
+                  file="Source/Utils/DoobMath/Waveforms/TriangleWave.cpp"/>
+            <FILE id="Xb2WvH" name="TriangleWave.h" compile="0" resource="0" file="Source/Utils/DoobMath/Waveforms/TriangleWave.h"/>
+          </GROUP>
+          <FILE id="Snf6ZX" name="GeneralMath.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/GeneralMath.cpp"/>
+          <FILE id="sp8Q8L" name="GeneralMath.h" compile="0" resource="0" file="Source/Utils/DoobMath/GeneralMath.h"/>
+        </GROUP>
         <FILE id="oUktXv" name="AudioBufferQueue.cpp" compile="1" resource="0"
               file="Source/Utils/AudioBufferQueue.cpp"/>
         <FILE id="TceuZy" name="AudioBufferQueue.h" compile="0" resource="0"
