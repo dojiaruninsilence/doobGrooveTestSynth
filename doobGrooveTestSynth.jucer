@@ -53,6 +53,52 @@
       </GROUP>
       <GROUP id="{527314F4-7EF5-1059-4300-DF672FFEC256}" name="Utils">
         <GROUP id="{4AB8660E-91C8-27AC-763B-43E70BB6F0DB}" name="DoobMath">
+          <GROUP id="{00E5FB34-072B-6390-50BB-5EEFCAC9A6E5}" name="DDsp">
+            <FILE id="vqqkyo" name="DConvolution.cpp" compile="1" resource="0"
+                  file="Source/Utils/DoobMath/DDsp/DConvolution.cpp"/>
+            <FILE id="euZPZg" name="DConvolution.h" compile="0" resource="0" file="Source/Utils/DoobMath/DDsp/DConvolution.h"/>
+            <FILE id="tiLvzC" name="DDspUtils.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/DDsp/DDspUtils.cpp"/>
+            <FILE id="Ts5YNA" name="DDspUtils.h" compile="0" resource="0" file="Source/Utils/DoobMath/DDsp/DDspUtils.h"/>
+            <FILE id="sP7PbH" name="DFft.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/DDsp/DFft.cpp"/>
+            <FILE id="Z9rIfC" name="DFft.h" compile="0" resource="0" file="Source/Utils/DoobMath/DDsp/DFft.h"/>
+            <FILE id="W1Vfzu" name="DFirFilt.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/DDsp/DFirFilt.cpp"/>
+            <FILE id="MK0XBQ" name="DFirFilt.h" compile="0" resource="0" file="Source/Utils/DoobMath/DDsp/DFirFilt.h"/>
+            <FILE id="M4Jkwi" name="DIirFilt.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/DDsp/DIirFilt.cpp"/>
+            <FILE id="vWzluw" name="DIirFilt.h" compile="0" resource="0" file="Source/Utils/DoobMath/DDsp/DIirFilt.h"/>
+            <FILE id="iHuDwh" name="DSpectralAnalysis.cpp" compile="1" resource="0"
+                  file="Source/Utils/DoobMath/DDsp/DSpectralAnalysis.cpp"/>
+            <FILE id="YuqKQv" name="DSpectralAnalysis.h" compile="0" resource="0"
+                  file="Source/Utils/DoobMath/DDsp/DSpectralAnalysis.h"/>
+            <FILE id="Lbs0St" name="DWindowFunc.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/DDsp/DWindowFunc.cpp"/>
+            <FILE id="JdlhfD" name="DWindowFunc.h" compile="0" resource="0" file="Source/Utils/DoobMath/DDsp/DWindowFunc.h"/>
+          </GROUP>
+          <GROUP id="{20823393-75EC-728B-3E1B-0CC720334BE9}" name="GeneralMath">
+            <FILE id="kPGJDs" name="DRng.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/GeneralMath/DRng.cpp"/>
+            <FILE id="W9cVBK" name="DRng.h" compile="0" resource="0" file="Source/Utils/DoobMath/GeneralMath/DRng.h"/>
+            <FILE id="y8JChY" name="DVecMatOps.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/GeneralMath/DVecMatOps.cpp"/>
+            <FILE id="oPJUkE" name="DVecMatOps.h" compile="0" resource="0" file="Source/Utils/DoobMath/GeneralMath/DVecMatOps.h"/>
+            <FILE id="Mi9TNQ" name="DInterpolation.cpp" compile="1" resource="0"
+                  file="Source/Utils/DoobMath/GeneralMath/DInterpolation.cpp"/>
+            <FILE id="nJ7jWN" name="DInterpolation.h" compile="0" resource="0"
+                  file="Source/Utils/DoobMath/GeneralMath/DInterpolation.h"/>
+            <FILE id="eecMdH" name="DStats.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/GeneralMath/DStats.cpp"/>
+            <FILE id="YPB8ul" name="DStats.h" compile="0" resource="0" file="Source/Utils/DoobMath/GeneralMath/DStats.h"/>
+            <FILE id="jgJog6" name="DExpLogFunctions.cpp" compile="1" resource="0"
+                  file="Source/Utils/DoobMath/GeneralMath/DExpLogFunctions.cpp"/>
+            <FILE id="qcnpPT" name="DExpLogFunctions.h" compile="0" resource="0"
+                  file="Source/Utils/DoobMath/GeneralMath/DExpLogFunctions.h"/>
+            <FILE id="VOCfZI" name="DTrig.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/GeneralMath/DTrig.cpp"/>
+            <FILE id="i7Wv2l" name="DTrig.h" compile="0" resource="0" file="Source/Utils/DoobMath/GeneralMath/DTrig.h"/>
+            <FILE id="xHKH0H" name="DMathDefines.h" compile="0" resource="0" file="Source/Utils/DoobMath/GeneralMath/DMathDefines.h"/>
+            <FILE id="ipsfQP" name="DRoundingTruncFunctions.cpp" compile="1" resource="0"
+                  file="Source/Utils/DoobMath/GeneralMath/DRoundingTruncFunctions.cpp"/>
+            <FILE id="f6vIS5" name="DRoundingTruncFunctions.h" compile="0" resource="0"
+                  file="Source/Utils/DoobMath/GeneralMath/DRoundingTruncFunctions.h"/>
+            <FILE id="ZXBLE2" name="DSqrRootAbsFunctions.cpp" compile="1" resource="0"
+                  file="Source/Utils/DoobMath/GeneralMath/DSqrRootAbsFunctions.cpp"/>
+            <FILE id="qpSlZa" name="DSqrRootAbsFunctions.h" compile="0" resource="0"
+                  file="Source/Utils/DoobMath/GeneralMath/DSqrRootAbsFunctions.h"/>
+          </GROUP>
           <GROUP id="{4FA5428B-FF1B-EF35-2B41-DF2EB991B6DF}" name="Waveforms">
             <FILE id="akg3fm" name="CustomWaveform.cpp" compile="1" resource="0"
                   file="Source/Utils/DoobMath/Waveforms/CustomWaveform.cpp"/>
@@ -69,8 +115,6 @@
                   file="Source/Utils/DoobMath/Waveforms/TriangleWave.cpp"/>
             <FILE id="Xb2WvH" name="TriangleWave.h" compile="0" resource="0" file="Source/Utils/DoobMath/Waveforms/TriangleWave.h"/>
           </GROUP>
-          <FILE id="Snf6ZX" name="GeneralMath.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/GeneralMath.cpp"/>
-          <FILE id="sp8Q8L" name="GeneralMath.h" compile="0" resource="0" file="Source/Utils/DoobMath/GeneralMath.h"/>
         </GROUP>
         <FILE id="oUktXv" name="AudioBufferQueue.cpp" compile="1" resource="0"
               file="Source/Utils/AudioBufferQueue.cpp"/>
