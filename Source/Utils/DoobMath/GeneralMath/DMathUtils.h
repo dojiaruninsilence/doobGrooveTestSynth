@@ -1,8 +1,8 @@
 /*
   ==============================================================================
 
-    DSqrRootAbsFunctions.h
-    Created: 6 May 2024 8:45:08pm
+    DMathUtils.h
+    Created: 8 May 2024 1:08:00pm
     Author:  Zubin
 
   ==============================================================================
@@ -12,12 +12,8 @@
 
 namespace DMath {
     template <typename Type>
-    class DSqrRootAbsFunctions {
+    class DMathUtils {
     public:
-        // calculate the square root of x
-        static Type sqrt(Type x);
-
-        // calculate the absolute value of x
-        static Type abs(Type x);
+        static Type sinc(Type x);
     };
 }

@@ -12,14 +12,16 @@
 
 #include <cmath>
 
-// Square Root
-template <typename Type>
-Type DSqrRootAbsFunctions<Type>::sqrt(Type x) {
-    return std::sqrt(x);
-}
+namespace DMath {
+    // Square Root
+    template <typename Type>
+    Type DSqrRootAbsFunctions<Type>::sqrt(Type x) {
+        return std::sqrt(x);
+    }
 
-// Absolute Value
-template <typename Type>
-Type DSqrRootAbsFunctions<Type>::abs(Type x) {
-    return std::abs(x);
+    // Absolute Value
+    template <typename Type>
+    Type DSqrRootAbsFunctions<Type>::abs(Type x) {
+        return std::abs(x);
+    }
 }

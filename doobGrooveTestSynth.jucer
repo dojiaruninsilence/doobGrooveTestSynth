@@ -73,6 +73,12 @@
             <FILE id="JdlhfD" name="DWindowFunc.h" compile="0" resource="0" file="Source/Utils/DoobMath/DDsp/DWindowFunc.h"/>
           </GROUP>
           <GROUP id="{20823393-75EC-728B-3E1B-0CC720334BE9}" name="GeneralMath">
+            <FILE id="rfojSd" name="DMathUtils.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/GeneralMath/DMathUtils.cpp"/>
+            <FILE id="N1OsuO" name="DMathUtils.h" compile="0" resource="0" file="Source/Utils/DoobMath/GeneralMath/DMathUtils.h"/>
+            <FILE id="H6tU1f" name="DVectorComplex.cpp" compile="1" resource="0"
+                  file="Source/Utils/DoobMath/GeneralMath/DVectorComplex.cpp"/>
+            <FILE id="DLJh1Z" name="DVectorComplex.h" compile="0" resource="0"
+                  file="Source/Utils/DoobMath/GeneralMath/DVectorComplex.h"/>
             <FILE id="kPGJDs" name="DRng.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/GeneralMath/DRng.cpp"/>
             <FILE id="W9cVBK" name="DRng.h" compile="0" resource="0" file="Source/Utils/DoobMath/GeneralMath/DRng.h"/>
             <FILE id="y8JChY" name="DVecMatOps.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/GeneralMath/DVecMatOps.cpp"/>

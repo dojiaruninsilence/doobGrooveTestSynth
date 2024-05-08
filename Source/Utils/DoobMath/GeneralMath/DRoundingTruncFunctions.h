@@ -9,21 +9,23 @@
 */
 
 #pragma once
+namespace DMath {
+    template <typename Type>
+    class DRoundingTruncFunctions {
+    public:
+        DRoundingTruncFunctions() {}
+        ~DRoundingTruncFunctions() {}
 
-template <typename Type>
-class DRoundingTruncFunctions {
-    DRoundingTruncFunctions() {}
-    ~DRoundingTruncFunctions() {}
+        // round to the nearest integer
+        Type round(Type x);
 
-    // round to the nearest integer
-    Type round(Type x);
+        // Round towards negative infinity
+        Type floor(Type x);
 
-    // Round towards negative infinity
-    Type floor(Type x);
+        // Round towards positive infinity
+        Type ceil(Type x);
 
-    // Round towards positive infinity
-    Type ceil(Type x);
-
-    // Truncate towards zero
-    Type trunc(Type x);
-};
+        // Truncate towards zero
+        Type trunc(Type x);
+    };
+}
