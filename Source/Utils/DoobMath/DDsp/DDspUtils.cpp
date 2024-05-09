@@ -10,7 +10,7 @@
 
 #include "DDspUtils.h"
 
-#include "../GeneralMath/DSqrRootAbsFunctions.h"
+#include "../DGeneralMath/DSqrRootAbsFunctions.h"
 
 namespace DDsp {
     template <typename Type>

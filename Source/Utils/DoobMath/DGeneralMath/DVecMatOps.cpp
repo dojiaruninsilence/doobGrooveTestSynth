@@ -74,6 +74,31 @@ namespace DMath {
     }
 
     template <typename Type>
+    void DVector<Type>::resize(size_t newSize) {
+        if (newSize <= size) {
+            size = newSize; 
+        }
+        else {
+            reserve(newSize); 
+            size = newSize;
+        }
+    }
+
+    template <typename Type>
+    void DVector<Type>::resize(size_t newSize, const Type& value) {
+        if (newSize <= size) {
+            size = newSize;
+        }
+        else {
+            reserve(newSize);
+            for (size_t i = size; i < newSize; ++i) {
+                data[i] = value; 
+            }
+            size = newSize;
+        }
+    }
+
+    template <typename Type>
     DVector<Type> DVector<Type>::subVector(size_t start, size_t end) const {
         start = std::min(start, size);
         end = std::min(end, size);
@@ -92,5 +117,17 @@ namespace DMath {
     template <typename Type>
     DVector<Type> DVector<Type>::subVector(size_t start) const {
         return subVector(start, size);
+    }
+
+    template <typename Type>
+    void DVector<Type>::setSubVector(size_t startIndex, const DVector<Type>& otherVector) {
+        size_t otherSize = otherVector.getSize();
+        if (startIndex + otherSize > size) {
+            reserve(startIndex + otherSize);
+            size = startIndex + otherSize;
+        }
+        for (size_t i = 0; i < otherSize; ++i) {
+            data[startIndex + i] = otherVector[i];
+        }
     }
 }

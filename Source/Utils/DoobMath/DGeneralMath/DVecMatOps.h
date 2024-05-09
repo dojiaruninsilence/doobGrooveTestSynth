@@ -64,8 +64,15 @@ namespace DMath {
         Type min() const;
         Type max() const;
 
+        // method to resize the vector
+        void resize(size_t newSize);
+        void resize(size_t newSize, const Type& value);
+
         DVector<Type> subVector(size_t start, size_t end) const;
         DVector<Type> subVector(size_t start) const;
+
+        // method to set a sub-vector from another vector
+        void setSubVector(size_t startIndex, const DVector<Type>& otherVector);
 
         // method to access elements by index
         Type& operator[](size_t index) { return data[index]; }

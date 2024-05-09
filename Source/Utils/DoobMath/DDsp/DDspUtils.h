@@ -12,8 +12,8 @@
 
 #include <complex>
 
-#include "../GeneralMath/DVectorComplex.h"
-#include "../GeneralMath/DVecMatOps.h"
+#include "../DGeneralMath/DVectorComplex.h"
+#include "../DGeneralMath/DVecMatOps.h"
 
 namespace DDsp {
     template <typename Type>

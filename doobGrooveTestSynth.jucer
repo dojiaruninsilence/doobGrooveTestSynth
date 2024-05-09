@@ -72,54 +72,57 @@
             <FILE id="Lbs0St" name="DWindowFunc.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/DDsp/DWindowFunc.cpp"/>
             <FILE id="JdlhfD" name="DWindowFunc.h" compile="0" resource="0" file="Source/Utils/DoobMath/DDsp/DWindowFunc.h"/>
           </GROUP>
-          <GROUP id="{20823393-75EC-728B-3E1B-0CC720334BE9}" name="GeneralMath">
-            <FILE id="rfojSd" name="DMathUtils.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/GeneralMath/DMathUtils.cpp"/>
-            <FILE id="N1OsuO" name="DMathUtils.h" compile="0" resource="0" file="Source/Utils/DoobMath/GeneralMath/DMathUtils.h"/>
-            <FILE id="H6tU1f" name="DVectorComplex.cpp" compile="1" resource="0"
-                  file="Source/Utils/DoobMath/GeneralMath/DVectorComplex.cpp"/>
-            <FILE id="DLJh1Z" name="DVectorComplex.h" compile="0" resource="0"
-                  file="Source/Utils/DoobMath/GeneralMath/DVectorComplex.h"/>
-            <FILE id="kPGJDs" name="DRng.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/GeneralMath/DRng.cpp"/>
-            <FILE id="W9cVBK" name="DRng.h" compile="0" resource="0" file="Source/Utils/DoobMath/GeneralMath/DRng.h"/>
-            <FILE id="y8JChY" name="DVecMatOps.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/GeneralMath/DVecMatOps.cpp"/>
-            <FILE id="oPJUkE" name="DVecMatOps.h" compile="0" resource="0" file="Source/Utils/DoobMath/GeneralMath/DVecMatOps.h"/>
-            <FILE id="Mi9TNQ" name="DInterpolation.cpp" compile="1" resource="0"
-                  file="Source/Utils/DoobMath/GeneralMath/DInterpolation.cpp"/>
-            <FILE id="nJ7jWN" name="DInterpolation.h" compile="0" resource="0"
-                  file="Source/Utils/DoobMath/GeneralMath/DInterpolation.h"/>
-            <FILE id="eecMdH" name="DStats.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/GeneralMath/DStats.cpp"/>
-            <FILE id="YPB8ul" name="DStats.h" compile="0" resource="0" file="Source/Utils/DoobMath/GeneralMath/DStats.h"/>
-            <FILE id="jgJog6" name="DExpLogFunctions.cpp" compile="1" resource="0"
-                  file="Source/Utils/DoobMath/GeneralMath/DExpLogFunctions.cpp"/>
-            <FILE id="qcnpPT" name="DExpLogFunctions.h" compile="0" resource="0"
-                  file="Source/Utils/DoobMath/GeneralMath/DExpLogFunctions.h"/>
-            <FILE id="VOCfZI" name="DTrig.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/GeneralMath/DTrig.cpp"/>
-            <FILE id="i7Wv2l" name="DTrig.h" compile="0" resource="0" file="Source/Utils/DoobMath/GeneralMath/DTrig.h"/>
-            <FILE id="xHKH0H" name="DMathDefines.h" compile="0" resource="0" file="Source/Utils/DoobMath/GeneralMath/DMathDefines.h"/>
-            <FILE id="ipsfQP" name="DRoundingTruncFunctions.cpp" compile="1" resource="0"
-                  file="Source/Utils/DoobMath/GeneralMath/DRoundingTruncFunctions.cpp"/>
-            <FILE id="f6vIS5" name="DRoundingTruncFunctions.h" compile="0" resource="0"
-                  file="Source/Utils/DoobMath/GeneralMath/DRoundingTruncFunctions.h"/>
-            <FILE id="ZXBLE2" name="DSqrRootAbsFunctions.cpp" compile="1" resource="0"
-                  file="Source/Utils/DoobMath/GeneralMath/DSqrRootAbsFunctions.cpp"/>
-            <FILE id="qpSlZa" name="DSqrRootAbsFunctions.h" compile="0" resource="0"
-                  file="Source/Utils/DoobMath/GeneralMath/DSqrRootAbsFunctions.h"/>
+          <GROUP id="{20823393-75EC-728B-3E1B-0CC720334BE9}" name="DGeneralMath">
+            <FILE id="MgAwer" name="DExpLogFunctions.cpp" compile="1" resource="0"
+                  file="Source/Utils/DoobMath/DGeneralMath/DExpLogFunctions.cpp"/>
+            <FILE id="Eydg5o" name="DExpLogFunctions.h" compile="0" resource="0"
+                  file="Source/Utils/DoobMath/DGeneralMath/DExpLogFunctions.h"/>
+            <FILE id="tIuJzE" name="DFilterDesign.cpp" compile="1" resource="0"
+                  file="Source/Utils/DoobMath/DGeneralMath/DFilterDesign.cpp"/>
+            <FILE id="RKbfdX" name="DFilterDesign.h" compile="0" resource="0" file="Source/Utils/DoobMath/DGeneralMath/DFilterDesign.h"/>
+            <FILE id="Uryu2v" name="DInterpolation.cpp" compile="1" resource="0"
+                  file="Source/Utils/DoobMath/DGeneralMath/DInterpolation.cpp"/>
+            <FILE id="pSz7L5" name="DInterpolation.h" compile="0" resource="0"
+                  file="Source/Utils/DoobMath/DGeneralMath/DInterpolation.h"/>
+            <FILE id="jNGkYD" name="DMathDefines.h" compile="0" resource="0" file="Source/Utils/DoobMath/DGeneralMath/DMathDefines.h"/>
+            <FILE id="idJaU3" name="DMathUtils.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/DGeneralMath/DMathUtils.cpp"/>
+            <FILE id="bq76gg" name="DMathUtils.h" compile="0" resource="0" file="Source/Utils/DoobMath/DGeneralMath/DMathUtils.h"/>
+            <FILE id="YnrfRP" name="DRng.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/DGeneralMath/DRng.cpp"/>
+            <FILE id="dQi9V3" name="DRng.h" compile="0" resource="0" file="Source/Utils/DoobMath/DGeneralMath/DRng.h"/>
+            <FILE id="kuS8ZG" name="DRoundingTruncFunctions.cpp" compile="1" resource="0"
+                  file="Source/Utils/DoobMath/DGeneralMath/DRoundingTruncFunctions.cpp"/>
+            <FILE id="Cu6zGx" name="DRoundingTruncFunctions.h" compile="0" resource="0"
+                  file="Source/Utils/DoobMath/DGeneralMath/DRoundingTruncFunctions.h"/>
+            <FILE id="EPYidI" name="DSqrRootAbsFunctions.cpp" compile="1" resource="0"
+                  file="Source/Utils/DoobMath/DGeneralMath/DSqrRootAbsFunctions.cpp"/>
+            <FILE id="Ox5AKP" name="DSqrRootAbsFunctions.h" compile="0" resource="0"
+                  file="Source/Utils/DoobMath/DGeneralMath/DSqrRootAbsFunctions.h"/>
+            <FILE id="c95ou0" name="DStats.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/DGeneralMath/DStats.cpp"/>
+            <FILE id="oE1Tra" name="DStats.h" compile="0" resource="0" file="Source/Utils/DoobMath/DGeneralMath/DStats.h"/>
+            <FILE id="ELEmd1" name="DTrig.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/DGeneralMath/DTrig.cpp"/>
+            <FILE id="mCQLd6" name="DTrig.h" compile="0" resource="0" file="Source/Utils/DoobMath/DGeneralMath/DTrig.h"/>
+            <FILE id="CnrjGg" name="DVecMatOps.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/DGeneralMath/DVecMatOps.cpp"/>
+            <FILE id="EWFdeL" name="DVecMatOps.h" compile="0" resource="0" file="Source/Utils/DoobMath/DGeneralMath/DVecMatOps.h"/>
+            <FILE id="p3GSjz" name="DVectorComplex.cpp" compile="1" resource="0"
+                  file="Source/Utils/DoobMath/DGeneralMath/DVectorComplex.cpp"/>
+            <FILE id="eRjVJ1" name="DVectorComplex.h" compile="0" resource="0"
+                  file="Source/Utils/DoobMath/DGeneralMath/DVectorComplex.h"/>
           </GROUP>
-          <GROUP id="{4FA5428B-FF1B-EF35-2B41-DF2EB991B6DF}" name="Waveforms">
-            <FILE id="akg3fm" name="CustomWaveform.cpp" compile="1" resource="0"
-                  file="Source/Utils/DoobMath/Waveforms/CustomWaveform.cpp"/>
-            <FILE id="iXb9UZ" name="CustomWaveform.h" compile="0" resource="0"
-                  file="Source/Utils/DoobMath/Waveforms/CustomWaveform.h"/>
-            <FILE id="cwZK4Z" name="SawtoothWave.cpp" compile="1" resource="0"
-                  file="Source/Utils/DoobMath/Waveforms/SawtoothWave.cpp"/>
-            <FILE id="bwdkwC" name="SawtoothWave.h" compile="0" resource="0" file="Source/Utils/DoobMath/Waveforms/SawtoothWave.h"/>
-            <FILE id="htHWW0" name="SineWave.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/Waveforms/SineWave.cpp"/>
-            <FILE id="AOgfnc" name="SineWave.h" compile="0" resource="0" file="Source/Utils/DoobMath/Waveforms/SineWave.h"/>
-            <FILE id="YAsV1P" name="SquareWave.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/Waveforms/SquareWave.cpp"/>
-            <FILE id="K1aaAo" name="SquareWave.h" compile="0" resource="0" file="Source/Utils/DoobMath/Waveforms/SquareWave.h"/>
-            <FILE id="f7o7OU" name="TriangleWave.cpp" compile="1" resource="0"
-                  file="Source/Utils/DoobMath/Waveforms/TriangleWave.cpp"/>
-            <FILE id="Xb2WvH" name="TriangleWave.h" compile="0" resource="0" file="Source/Utils/DoobMath/Waveforms/TriangleWave.h"/>
+          <GROUP id="{4FA5428B-FF1B-EF35-2B41-DF2EB991B6DF}" name="DWaveforms">
+            <FILE id="qvjCVU" name="CustomWaveform.cpp" compile="1" resource="0"
+                  file="Source/Utils/DoobMath/DWaveforms/CustomWaveform.cpp"/>
+            <FILE id="c98WhA" name="CustomWaveform.h" compile="0" resource="0"
+                  file="Source/Utils/DoobMath/DWaveforms/CustomWaveform.h"/>
+            <FILE id="Njtd2o" name="SawtoothWave.cpp" compile="1" resource="0"
+                  file="Source/Utils/DoobMath/DWaveforms/SawtoothWave.cpp"/>
+            <FILE id="B0BbeX" name="SawtoothWave.h" compile="0" resource="0" file="Source/Utils/DoobMath/DWaveforms/SawtoothWave.h"/>
+            <FILE id="botRRQ" name="SineWave.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/DWaveforms/SineWave.cpp"/>
+            <FILE id="tNM1r0" name="SineWave.h" compile="0" resource="0" file="Source/Utils/DoobMath/DWaveforms/SineWave.h"/>
+            <FILE id="cJJ8pi" name="SquareWave.cpp" compile="1" resource="0" file="Source/Utils/DoobMath/DWaveforms/SquareWave.cpp"/>
+            <FILE id="nAXXG1" name="SquareWave.h" compile="0" resource="0" file="Source/Utils/DoobMath/DWaveforms/SquareWave.h"/>
+            <FILE id="Oi5adF" name="TriangleWave.cpp" compile="1" resource="0"
+                  file="Source/Utils/DoobMath/DWaveforms/TriangleWave.cpp"/>
+            <FILE id="DGD30U" name="TriangleWave.h" compile="0" resource="0" file="Source/Utils/DoobMath/DWaveforms/TriangleWave.h"/>
           </GROUP>
         </GROUP>
         <FILE id="oUktXv" name="AudioBufferQueue.cpp" compile="1" resource="0"
