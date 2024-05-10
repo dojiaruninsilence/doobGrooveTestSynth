@@ -88,5 +88,24 @@ namespace DDsp {
 
         return paddedSignal;
     }
+
+    template<typename Type>
+    DMath::DVector<Type> DDspUtils<Type>::movingAverage(const DMath::DVector<Type>& input, size_t windowSize) {
+        DMath::DVector<Type> result(input.getSize());
+
+        for (size_t i = 0; i < input.getSize(); ++i) {
+            // compute the average of the values within the window
+            size_t start = (i < windowSize / 2) ? 0 : i - windowSize / 2;
+            size_t end = (i + windowSize / 2 >= input.getSize()) ? input.getSize() - 1 : i + windowSize / 2;
+
+            Type sum = Type(0);
+            for (size_t j = start; j <= end; ++j) {
+                sum += input[j];
+            }
+            result[i] = sum / static_cast<Type>(end - start + 1);
+        }
+
+        return result;
+    }
 }
 

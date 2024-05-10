@@ -99,6 +99,15 @@ namespace DMath {
     }
 
     template <typename Type>
+    void DVector<Type>::clear() {
+        // Free the memory and reset size to 0
+        delete[] elements;
+        elements = nullptr;
+        size = 0;
+        capacity = 0;
+    }
+
+    template <typename Type>
     DVector<Type> DVector<Type>::subVector(size_t start, size_t end) const {
         start = std::min(start, size);
         end = std::min(end, size);

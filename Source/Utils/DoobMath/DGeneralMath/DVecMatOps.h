@@ -68,6 +68,9 @@ namespace DMath {
         void resize(size_t newSize);
         void resize(size_t newSize, const Type& value);
 
+        // Method to clear the vector
+        void clear();
+
         DVector<Type> subVector(size_t start, size_t end) const;
         DVector<Type> subVector(size_t start) const;
 
